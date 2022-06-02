@@ -24,8 +24,6 @@ Exercice 7 : Dans le composant App, utiliser les données fournis pour génére
 
 ------
 
-installer la navigation
+installer React Native Paper (la navigation n'est pas utile)
 
-$ npm install @react-navigation/native @react-navigation/native-stack
-
-$ expo install react-native-screens react-native-safe-area-context
+$ npm install react-native-paper
