@@ -4,12 +4,16 @@ import { StyleSheet, ScrollView, View, Text } from 'react-native';
 import PRODUITS from './assets/data/data';
 import CardItem from './components/CardItem';
 import { Searchbar } from 'react-native-paper';
+import { IProduct } from './interfaces/Interfaces';
 
 export default function App() {
 
   const [searchQuery, setSearchQuery] = useState('');
+
+  // mise à jour du state searchQuery quandon modifie le texte sur le champ de recherche
   const onChangeSearch = (query: string) => setSearchQuery(query);
 
+  // initialise en recherchant le nb max d'éléments avant recherche
   const [countTotalValues, setCountTotalValues] = useState(PRODUITS.length);
 
   // Filtre la recherche depuis le champs du formulaire
