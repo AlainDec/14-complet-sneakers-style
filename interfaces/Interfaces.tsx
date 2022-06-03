@@ -24,4 +24,4 @@ interface ILikes {
     likes?: string;
 }
 
-export { IProduct, IPrice, ILikes }
+export { IProduct, IPrice, ILikes, IItem }

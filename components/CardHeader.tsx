@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
         paddingRight: 8,
         textAlign: 'right',
         fontSize: 22,
-        color: 'grey'
+        color: 'grey',
+        height: 40,
     },
 });

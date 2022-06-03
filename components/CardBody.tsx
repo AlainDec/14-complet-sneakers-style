@@ -5,7 +5,7 @@ import { Card } from 'react-native-paper';
 const CardBody: React.FC<IProduct>  = (props: IProduct):JSX.Element => {
     const {product} = props;
     return (
-        <View>
+        <View style={styles.container}>
             <View style={styles.photoContainer}>
                 <Image source={product.photo} style={styles.photo} />
             </View>
@@ -20,13 +20,16 @@ const CardBody: React.FC<IProduct>  = (props: IProduct):JSX.Element => {
 export default CardBody;
 
 const styles = StyleSheet.create({
+    container: {
+        flexGrow: 1, // descend le footer jusqu'en bas
+    },
     textContainer: {
         marginHorizontal: 5,
     },
     title: {
         marginTop: 5,
         marginBottom: 10,
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
     },
     description: {
 

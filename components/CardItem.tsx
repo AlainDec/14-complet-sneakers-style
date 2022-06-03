@@ -8,7 +8,7 @@ import CardFooter from './CardFooter';
 const CardItem: React.FC<IProduct>  = (props: IProduct):JSX.Element => {
     const {product} = props;
     return (
-        <Card style={styles.ele}>
+        <Card style={styles.container}>
             <CardHeader price={product.price} />
             <CardBody product={product} />
             <CardFooter product={product} />
@@ -20,12 +20,11 @@ export default CardItem;
 
 const styles= StyleSheet.create({
     container: {
-    },
-    ele: {
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: .1,
         shadowRadius: 16,
         elevation: 5,
+        flexGrow: 1,
     }
 })

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, ScrollView, View, Text } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, FlatList } from 'react-native';
 import PRODUITS from './assets/data/data';
 import CardItem from './components/CardItem';
 import { Searchbar } from 'react-native-paper';
-import { IProduct } from './interfaces/Interfaces';
+import { IItem, IProduct } from './interfaces/Interfaces';
 
 export default function App() {
 
@@ -25,6 +25,13 @@ export default function App() {
     }
   });
 
+  // VERSION AVEC FLATLIST
+  const Item = ({product}: IProduct) => (
+    <View style={styles.card}>
+      <CardItem product={product} />
+    </View>
+  );
+  //   /VERSION AVEC FLATLIST
   return (
     <View style={styles.container}>
       <Searchbar
@@ -39,12 +46,23 @@ export default function App() {
 
         <View style={styles.cardContainer} >
           {
+            <FlatList
+              scrollEnabled={true}
+              data={search}
+              renderItem={({item}) => <Item product={item} />}
+              horizontal={false}
+              numColumns={2}
+              keyExtractor={item => item.id}
+            />
+          }
+          {/* VERSION SANS FLATLIST
+          {
             search.map((value, index) => (
               <View style={styles.card} key={index}>
                 <CardItem product={value} />
               </View>
             ))
-          }
+          } */}
         </View>
         <StatusBar style="auto" />
       </ScrollView>
